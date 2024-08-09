@@ -1,46 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_set_cookie_params(0); 
+session_start();
 
-    <head> 
-        <meta charset="utf-8" />
-        <title>Ateliê Aline Nacur</title>
-    </head>
+$email = $_POST['email'];
+$senha = $_POST['senha'];
 
-<body> 
+$file = 'usuarios.txt';
+$usuarios = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-    <?php
-        session_start();
-        $_SESSION['X'] = 'Seção oficialmente aberta';
-        print_r($_SESSION['X']);
-        echo '<hr>';
+$login_valido = false;
 
-        $usuario_autenticator = false; 
+foreach ($usuarios as $usuario) {
+    list($email_cadastrado, $senha_cadastrada) = explode(':', $usuario);
 
-        $file = 'usuarios.txt';
-        $usuarios_app = [];
-        if (file_exists($file)) {
-            $lines = file($file, FILE_IGNORE_NEW_LINES);
-            foreach ($lines as $line) {
-                list($email, $senha_hash) = explode(':', $line);
-                $usuarios_app[] = ['email' => $email, 'senha' => $senha_hash];
-            }
-        }
+    if ($email === $email_cadastrado && password_verify($senha, $senha_cadastrada)) {
+        $login_valido = true;
+        break;
+    }
+}
 
-        foreach ($usuarios_app as $user) {
-            if ($user['email'] === $_POST['email'] && password_verify($_POST['senha'], $user['senha'])) {
-                $usuario_autenticator = true;
-            }
-        }
+if ($login_valido) {
+    $_SESSION['autenticado'] = 'SIM';
+    header('Location: home.php');
+} else {
+    header('Location: index.php?login=erro');
+}
 
-        if ($usuario_autenticator) {
-            echo "Usuário Autenticado";
-            $_SESSION['autenticado'] = 'SIM';
-        } else {
-            $_SESSION['autenticado'] = 'NAO';
-            header('Location: index.php?login=erro');
-        }
-    ?>
-
-</body>
-    
-</html>
+exit();

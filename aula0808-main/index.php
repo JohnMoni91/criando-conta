@@ -5,10 +5,6 @@
     <title>Ateliê Aline Nacur</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gupter:wght@400;500;700&display=swap" rel="stylesheet">
-    
 </head>
 
 <body>
@@ -25,7 +21,6 @@
             <nav class="navbar">
                 <form class="form-inline mt-5" style="display: flex; position: relative; top: -25px;">
                   <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
                 </form>
               </nav>
 
@@ -78,12 +73,12 @@
                             </div>
                         <?php } ?>
                         <button class="btn btn-lg btn-info btn-block" type="submit">Entrar</button>
+                        <a href="crieconta.php" class="btn btn-lg btn-info btn-block">Criar nova conta</a>
                     </form>
                 </div>
             </div>
         </div>
-        <a href="crieconta.php" class="btn btn-lg btn-info btn-block">Criar nova conta</a>
-
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

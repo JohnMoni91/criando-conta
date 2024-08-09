@@ -4,12 +4,11 @@ $senha = $_POST['senha'];
 $confirmar_senha = $_POST['confirmar-senha'];
 
 if ($senha !== $confirmar_senha) {
-    header('Location: criandoconta.php?erro=senha');
+    header('Location: crieconta.php?erro=senha');
     exit();
 }
 
 $file = 'usuarios.txt';
-
 
 if (!file_exists($file)) {
     file_put_contents($file, '');
